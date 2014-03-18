@@ -1,0 +1,84 @@
+body {
+    font-family:Helvetica,arial,sans-serif;
+    font-size: 0;
+    background: #20271f;
+    color: #e1e1e1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 10px;
+}
+
+body, div {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+ul {
+    margin: 0;
+    margin-top: 5px;
+}
+
+.body-content {
+    width: 960px;
+    margin: 0 auto;
+    background: #7d8971;
+    border: solid 1px #232323;
+    border-style: inset;
+    margin-bottom: 10px;
+}
+
+.site-content {
+    padding: 12px;
+}
+
+.site-section {
+    background: #485342;
+    border: solid 1px #232323;
+    border-style: inset;
+    margin-bottom: 10px;
+}
+
+.site-section:last-of-type {
+    margin-bottom: 0;
+}
+
+.site-section-content {
+    font-size: 14px;
+    padding: 12px;
+    color: #c0c0c1;
+}
+
+.site-section-title {
+    background: #afb1b1;
+    background: -webkit-gradient(linear, left top, left bottombottom, color-stop(31%, #afb1b1), color-stop(100%, #68656b));
+    background: -webkit-linear-gradient(top,  #afb1b1 31%, #68656b 100%);
+    background: -moz-linear-gradient(top,  #afb1b1 31%, #68656b 100%);
+    background: -o-linear-gradient(top,  #afb1b1 31%,#68656b 100%);
+    background: -ms-linear-gradient(top,  #afb1b1 31%,#68656b 100%);
+    background: linear-gradient(to bottombottom,  #afb1b1 31%,#68656b 100%);
+    border: solid 1px #424242;
+    padding: 10px;
+}
+
+.site-section-title-image {
+    width: 16px;
+    float: left;
+    content: " ";
+    background: url("../images/sword.png");
+    background-size: 16px 16px;
+    height:16px;
+    margin-right: 10px;
+}
+
+.site-section-title-text {
+    font-size: 14px;
+    color: #29292a;
+}
+
+.site-banner {
+    height: 300px;
+    background: url("../images/banner.jpg");
+}
