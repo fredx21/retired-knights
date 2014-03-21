@@ -1,5 +1,5 @@
 body {
-    font-family:'Sofadi One', cursive;;
+    font-family:ProximaNova, sans-serif;
     font-size: 0;
     background: #20271f;
     color: #e1e1e1;
@@ -7,7 +7,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    top: 10px;
+    top: 0;
 }
 
 body, div {
@@ -25,19 +25,33 @@ ul {
     margin-top: 5px;
 }
 
+.background {
+    height: 100%;
+    width: 100%;
+    background: url('../images/background.jpg') no-repeat center left fixed;
+    background-size: cover;
+    z-index: -10;
+    position: fixed;
+}
+
 .body-content {
     width: 960px;
     margin: 0 auto;
-    background: #7d8971;
-    border: solid 1px #232323;
-    border-style: inset;
     margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .site-banner {
-    height: 280px;
-    background: url("../images/banner.jpg");
+    height: 141px;
+    background: url("../images/banner.png");
+    background-size: cover;
     margin: 10px 10px 0 10px;
+}
+
+.knd-banner {
+    height: 100px;
+    background: url("../images/knightsanddragons.png") no-repeat center;
+    background-size: 324px 74px;
 }
 
 .site-content {
@@ -45,15 +59,25 @@ ul {
 }
 
 .site-section {
-    background: #485342;
-    border: solid 1px #232323;
-    border-style: inset;
+    background-color: rgba(22, 22, 22, 0.48);
     margin-bottom: 10px;
 }
 
+.site-section > hr {
+    margin: 0 10px 0 10px;
+    height: 1px;
+    border: 0; border-top: 1px solid #9c9c9c;
+    padding: 0;
+}
+
 .site-section.no-title {
-    background: #7d8971;
     border: 0;
+    background-color: transparent;
+}
+
+.site-section.no-title .site-section-content {
+    color: white;
+    text-shadow: 1px 2px 2px #000000;
 }
 
 .site-section:last-of-type {
@@ -61,47 +85,29 @@ ul {
 }
 
 .site-section-content {
-    font-size: 14px;
+    font-size: 16px;
     padding: 12px;
-    color: #c0c0c1;
-}
-
-.site-section.no-title .site-section-content.copyright {
-    color: #475241;
-}
-
-.site-section.no-title .site-section-content.copyright a {
-    color: #475241;
-}
-
-.site-section.no-title .site-section-content {
-    padding: 5px;
-    color: #d8d8d9;
+    color: white;
 }
 
 .site-section-title {
-    background: #afb1b1;
-    background: -webkit-gradient(linear, left top, left bottombottom, color-stop(31%, #afb1b1), color-stop(100%, #68656b));
-    background: -webkit-linear-gradient(top,  #afb1b1 31%, #68656b 100%);
-    background: -moz-linear-gradient(top,  #afb1b1 31%, #68656b 100%);
-    background: -o-linear-gradient(top,  #afb1b1 31%,#68656b 100%);
-    background: -ms-linear-gradient(top,  #afb1b1 31%,#68656b 100%);
-    background: linear-gradient(to bottombottom,  #afb1b1 31%,#68656b 100%);
-    border: solid 1px #424242;
     padding: 10px;
 }
 
 .site-section-title-image {
-    width: 16px;
+    width: 26px;
+    height:26px;
     float: left;
     content: " ";
     background: url("../images/sword.png");
-    background-size: 16px 16px;
-    height:16px;
+    background-size: 26px 26px;
     margin-right: 10px;
 }
 
 .site-section-title-text {
-    font-size: 14px;
-    color: #29292a;
+    font-size: 22px;
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 1px 2px 2px #000000;
+    font-weight: bold;
 }
