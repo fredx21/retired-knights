@@ -34,19 +34,19 @@ li:last-of-type {
 }
 
 .background {
-    height: 100%;
-    width: 100%;
-    background-size: cover;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     z-index: -10;
     position: fixed;
     background: black no-repeat center left fixed;
+    background-size: cover;
 }
 
 .body-content {
     width: 960px;
-    margin: 0 auto;
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin: 10px auto 10px auto;
 }
 
 @media screen and (max-width: 960px) {
@@ -92,6 +92,11 @@ li:last-of-type {
 .site-section.no-title .site-section-content {
     color: white;
     text-shadow: 1px 2px 2px #000000;
+}
+
+.site-section.no-title.footer .site-section-content, .site-section.no-title.footer .site-section-content a {
+    text-align: center;
+    color: grey;
 }
 
 .site-section:last-of-type {
