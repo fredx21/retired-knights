@@ -12,11 +12,13 @@
 <script type="text/javascript">
     window.onload = function () {
         // generates a random integer between 0 and the length of the supplied array:
-        var n = Math.floor(Math.random() * 6) + 1;
-        $(".background")[0].style.backgroundImage = "url(./images/background" + n + ".jpg)";
+        var n = Math.floor(Math.random() * 6);
+        $(".background-image")[0].style.backgroundImage = "url(./images/background" + (n + 1) + ".jpg)";
     };
 </script>
-<div class="background"></div>
+<div class="background">
+    <div class="background-image"></div>
+</div>
 <div class="body-content">
     <div class="site-banner"></div>
     <div class="knd-banner"></div>
