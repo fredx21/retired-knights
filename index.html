@@ -5,6 +5,7 @@
     <title>Retired Knights</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/favico32x32.ico">
+    <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 </head>
 <body>
@@ -12,7 +13,7 @@
     window.onload = function () {
         // generates a random integer between 0 and the length of the supplied array:
         var n = Math.floor(Math.random() * 6) + 1;
-        document.getElementsByClassName("background")[0].style.backgroundImage = "url(./images/background" + n + ".jpg)";
+        $(".background")[0].style.backgroundImage = "url(./images/background" + n + ".jpg)";
     };
 </script>
 <div class="background"></div>
