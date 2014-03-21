@@ -11,9 +11,19 @@
 <body>
 <script type="text/javascript">
     window.onload = function () {
+        var BACKGOUND_IMAGE_COUNT = 6;
         // generates a random integer between 0 and the length of the supplied array:
-        var n = Math.floor(Math.random() * 6);
-        $(".background-image")[0].style.backgroundImage = "url(./images/background" + (n + 1) + ".jpg)";
+        var n = Math.floor(Math.random() * BACKGOUND_IMAGE_COUNT);
+
+        $(".background-image").css("background-image", "url(./images/background" + (n + 1) + ".jpg)");
+
+        window.setInterval(function() {
+            $(".background-image").fadeOut(300, function() {
+                n = (n + 1) % BACKGOUND_IMAGE_COUNT;
+                $(this).css("background-image", "url(./images/background" + (n + 1) + ".jpg)");
+                $(this).fadeIn(300);
+            });
+        }, 10000);
     };
 </script>
 <div class="background">
