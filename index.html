@@ -5,9 +5,16 @@
     <title>Retired Knights</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/favico32x32.ico">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 </head>
 <body>
+<script type="text/javascript">
+    window.onload = function () {
+        // generates a random integer between 0 and the length of the supplied array:
+        var n = Math.floor(Math.random() * 3) + 1;
+        document.getElementsByClassName("background")[0].style.backgroundImage = "url(./images/background" + n + ".jpg)";
+    };
+</script>
 <div class="background"></div>
 <div class="body-content">
     <div class="site-banner"></div>
