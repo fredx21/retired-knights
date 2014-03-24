@@ -10,6 +10,8 @@
 </head>
 <body>
 <script type="text/javascript">
+    var g_curPageName = null;
+
     window.onload = function () {
         var BACKGOUND_IMAGE_COUNT = 6;
         // generates a random integer between 0 and the length of the supplied array:
@@ -24,7 +26,29 @@
                 $(this).fadeIn(300);
             });
         }, 30000);
+
+        selectPage('rules');
     };
+
+    function selectPage(pageName)
+    {
+        if (pageName == g_curPageName) {
+            return;
+        }
+        if (g_curPageName != null) {
+            $("#page-selector-" + g_curPageName).removeClass("selected");
+            $("#page-" + g_curPageName).fadeOut(300);
+        }
+        $("#page-selector-" + pageName).addClass("selected");
+        $("#page-" + pageName).fadeIn(300);
+        g_curPageName = pageName;
+    }
+
+    function selectPageFromSelector(selector)
+    {
+        selectPage(selector.id.substr(14));
+    }
+
 </script>
 <div class="background">
     <div class="background-image"></div>
@@ -37,57 +61,147 @@
             <div class="site-section-content">Retired Knights is a friendly <a href="https://www.facebook.com/knightsanddragonsgame">Knights &amp; Dragons</a> guild on <a href="https://play.google.com/store/apps/details?id=com.iugome.lilknights">Android</a>. All our members play on a daily basis and try as hard as possible to be the best Android guild.
             </div>
         </div>
-        <div class="site-section">
-            <div class="site-section-title">
-                <div class="site-section-title-image"></div>
-                <div class="site-section-title-text">Guild War Rules</div>
-            </div>
-            <hr>
-            <div class="site-section-content">
+        <div class="nav-bar">
+            <div class="menu-left">
                 <ul>
-                    <li>
-                        It is required to be active during guild wars. If there is a reason you will not be able to log in, let someone know BEFORE the war begins, and it will be excused. <i><u>Inactive members during the guild war will be kicked our at the end of the war.</u></i>
-                    </li>
-                    <li>
-                        We declare war on the hour the guild war starts, and then every 2 hours. <i><u>Declaring war randomly will get you kicked out at the end of the war.</u></i>
-                    </li>
-                    <li>
-                        Everyone is required to change their name to RK during guild war. This makes it difficult for opposing guild to identify easy targets. <i><u>Not changing your name in time for guild war will get you kicked out before guild war.</u></i>
-                    </li>
-                    <li>
-                        We do not require gems to be spent, but it is appreciated. Respect the choices of your guild mates to gem or not.
-                    </li>
+                    <li id="page-selector-rules" onclick="selectPageFromSelector(this);">Rules</li>
+                    <li id="page-selector-faq" onclick="selectPageFromSelector(this);">FAQ</li>
+                    <li id="page-selector-resources" onclick="selectPageFromSelector(this);">Resources</li>
                 </ul>
             </div>
         </div>
-        <div class="site-section">
-            <div class="site-section-title">
-                <div class="site-section-title-image"></div>
-                <div class="site-section-title-text">Officer ranks distribution</div>
+        <div id="page-rules" class="page">
+            <div class="site-section">
+                <div class="site-section-title">
+                    <div class="site-section-title-image"></div>
+                    <div class="site-section-title-text">Guild War Rules</div>
+                </div>
+                <hr>
+                <div class="site-section-content">
+                    <ul>
+                        <li>
+                            It is required to be active during guild wars. If there is a reason you will not be able to log in, let someone know BEFORE the war begins, and it will be excused. <i><u>Inactive members during the guild war will be kicked our at the end of the war.</u></i>
+                        </li>
+                        <li>
+                            We declare war on the hour the guild war starts, and then every 2 hours. <i><u>Declaring war randomly will get you kicked out at the end of the war.</u></i>
+                        </li>
+                        <li>
+                            Everyone is required to change their name to RK during guild war. This makes it difficult for opposing guild to identify easy targets. <i><u>Not changing your name in time for guild war will get you kicked out before guild war.</u></i>
+                        </li>
+                        <li>
+                            We do not require gems to be spent, but it is appreciated. Respect the choices of your guild mates to gem or not.
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <hr>
-            <div class="site-section-content">
-                We rank officers by total number of attacks during guild war, not by points, to encourage everyone to attack guardians and sentinels. The ranks are awarded in the following order:
-                <ul>
-                    <li>
-                        Guild Champion (1 seat) - Attributed to the member with the most attacks at the end of guild war.
-                    </li>
-                    <li>
-                        High-commanders (9 seats) - Attributed to the members with the most attacks, following the guild champion, at the end of guild war.
-                    </li>
-                    <li>
-                        High-commanders (2 seats) - Attributed to the top 2 gold contributing members during the last week.
-                    </li>
-                </ul>
+            <div class="site-section">
+                <div class="site-section-title">
+                    <div class="site-section-title-image"></div>
+                    <div class="site-section-title-text">Officer ranks distribution</div>
+                </div>
+                <hr>
+                <div class="site-section-content">
+                    We rank officers by total number of attacks during guild war, not by points, to encourage everyone to attack guardians and sentinels. The ranks are awarded in the following order:
+                    <ul>
+                        <li>
+                            Guild Champion (1 seat) - Attributed to the member with the most attacks at the end of guild war.
+                        </li>
+                        <li>
+                            High-commanders (9 seats) - Attributed to the members with the most attacks, following the guild champion, at the end of guild war.
+                        </li>
+                        <li>
+                            High-commanders (2 seats) - Attributed to the top 2 gold contributing members during the last week.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="site-section">
+                <div class="site-section-title">
+                    <div class="site-section-title-image"></div>
+                    <div class="site-section-title-text">Contact</div>
+                </div>
+                <hr>
+                <div class="site-section-content">To contact the guild master, use the <a href="https://play.google.com/store/apps/details?id=jp.naver.line.android">LINE</a> app and connect with user id hangdawg.</div>
             </div>
         </div>
-        <div class="site-section">
-            <div class="site-section-title">
-                <div class="site-section-title-image"></div>
-                <div class="site-section-title-text">Contact</div>
+        <div id="page-faq" class="page">
+            <div class="site-section">
+                <div class="site-section-title">
+                    <div class="site-section-title-image"></div>
+                    <div class="site-section-title-text">Should I attack various opponents?</div>
+                </div>
+                <hr>
+                <div class="site-section-content">
+                    Find an opponent you can defeat and keep attacking that opponent. The amount of points awarded for a battle is random and does not decrease with the amount of attacks on a single opponent. Therefore, we recommend to avoid shopping around for new opponents.
+                    <br>
+                    <br>
+                    Remember, each battle lost is a waste of points to the guild.
+                </div>
             </div>
-            <hr>
-            <div class="site-section-content">To contact the guild master, use the <a href="https://play.google.com/store/apps/details?id=jp.naver.line.android">LINE</a> app and connect with user id hangdawg.</div>
+            <div class="site-section">
+                <div class="site-section-title">
+                    <div class="site-section-title-image"></div>
+                    <div class="site-section-title-text">Is there a bonus for defeating high-commanders?</div>
+                </div>
+                <hr>
+                <div class="site-section-content">
+                    Each victory against a high-commander gives an extra 20% bonus.
+                </div>
+            </div>
+            <div class="site-section">
+                <div class="site-section-title">
+                    <div class="site-section-title-image"></div>
+                    <div class="site-section-title-text">What does HC and C means?</div>
+                </div>
+                <hr>
+                <div class="site-section-content">
+                    <ul>
+                        <li>HC: High-Commander</li>
+                        <li>C: Commander</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="site-section">
+                <div class="site-section-title">
+                    <div class="site-section-title-image"></div>
+                    <div class="site-section-title-text">What does 3.2k mean?</div>
+                </div>
+                <hr>
+                <div class="site-section-content">
+                    This is the total strength of a player. It's calculated using the attack + defense of their main character, divided by 1000.
+                    <ul>
+                        <li>
+                            Player X has attack 1800 and defense 1400.
+                            <br>
+                            Player X strength = (1800+1400)/1000 = 3200/1000 = 3.2k.
+                        </li>
+                    </ul>
+                    <br>
+                    Please determine your own strength to better evaluate who you have a better chance of defeating.
+                </div>
+            </div>
+        </div>
+        <div id="page-resources" class="page">
+            <div class="site-section">
+                <div class="site-section-title">
+                    <div class="site-section-title-image"></div>
+                    <div class="site-section-title-text">Web sites</div>
+                </div>
+                <hr>
+                <div class="site-section-content">
+                    <ul>
+                        <li>
+                            <a href="http://www.funzio.com/forum/forumdisplay.php?99-General">Gree Official Forums</a>
+                        </li>
+                        <li>
+                            <a href="http://knights-and-dragons.wikia.com">Knights and Dragons Wiki</a>
+                        </li>
+                        <li>
+                            <a href="https://docs.google.com/spreadsheet/lv?key=0AiQKRFnZ9_jpdEFtUUVnd2dQM1ZIX2IxT1RNZVlvalE&f=true&noheader=true&gid=7">Armors data</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="site-section no-title footer">
             <div class="site-section-content" style="">Copyright &copy; Retired Knights 2014 | Domain name freely provided by <a href="http://afraid.org">afraid.org</a></div>
