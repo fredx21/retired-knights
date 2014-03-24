@@ -33,6 +33,22 @@ li:last-of-type {
     margin: 0;
 }
 
+td, th {
+    padding: 0 10px 10px 0;
+}
+
+td:last-of-type {
+    padding-right: 0;
+}
+
+tr:last-of-type td {
+    padding: 0;
+}
+
+th {
+    text-align: left;
+}
+
 .background {
     top: 0;
     left: 0;
@@ -92,7 +108,7 @@ li:last-of-type {
     line-height: 68px;
     cursor: pointer;
     display: inline-block;
-    width: 33.3333333333333333333333%;
+    width: 25%;
     text-align: center;
 }
 

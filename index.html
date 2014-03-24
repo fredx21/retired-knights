@@ -29,9 +29,23 @@
             });
         }, 30000);
 
-        selectPage('rules');
+        selectPage("guild");
         updateStats();
     };
+
+    function formatAnnouncement(row)
+    {
+        if (row.num == 0) {
+            return null;
+        } else if (row.cells.Date == "") {
+            return null;
+        }
+
+        var d = new Date(Date.parse(row.cells.Date));
+        var dateString = d.getUTCFullYear() +"/"+ (d.getUTCMonth()+1) +"/"+ d.getUTCDate();
+
+        return "<tr><td>" + dateString + "</td><td>" + row.cells.Message + "</td></tr>";
+    }
 
     function selectPage(pageName)
     {
@@ -54,9 +68,17 @@
 
     function updateStats()
     {
-        /*$('#results').sheetrock({
-            url: "https://docs.google.com/spreadsheet/ccc?key=0Ao7Q-nGhYrpddHdzeFpObmxUOFBhX2ZrOTBDRjJTc1E#gid=2"
-        });*/
+        $("#announcements").sheetrock({
+            url: "https://docs.google.com/spreadsheet/ccc?key=0Ao7Q-nGhYrpddHQzQzlXWHdIc1hNR1VSRFdHS0M2Z2c#gid=0",
+            headers: 1,
+            columns: {A:"Date", B:"Message"},
+            rowHandler: formatAnnouncement
+        });
+        $("#ranks").sheetrock({
+            url: "https://docs.google.com/spreadsheet/ccc?key=0Ao7Q-nGhYrpddHQzQzlXWHdIc1hNR1VSRFdHS0M2Z2c#gid=1",
+            sql: "select B,E,A",
+            headers: 1
+        });
     }
 
 </script>
@@ -72,9 +94,32 @@
             </div>
         </div>
         <div class="nav-bar">
+            <div id="page-selector-guild" class="nav-bar-item" onclick="selectPageFromSelector(this);">Guild</div>
             <div id="page-selector-rules" class="nav-bar-item" onclick="selectPageFromSelector(this);">Rules</div>
             <div id="page-selector-faq" class="nav-bar-item" onclick="selectPageFromSelector(this);">FAQ</div>
             <div id="page-selector-resources" class="nav-bar-item" onclick="selectPageFromSelector(this);">Resources</div>
+        </div>
+        <div id="page-guild" class="page">
+            <div class="site-section">
+                <div class="site-section-title">
+                    <div class="site-section-title-image"></div>
+                    <div class="site-section-title-text">Announcements</div>
+                </div>
+                <hr>
+                <div class="site-section-content">
+                    <div id="announcements"></div>
+                </div>
+            </div>
+            <div class="site-section">
+                <div class="site-section-title">
+                    <div class="site-section-title-image"></div>
+                    <div class="site-section-title-text">Ranks</div>
+                </div>
+                <hr>
+                <div class="site-section-content">
+                    <div id="ranks"></div>
+                </div>
+            </div>
         </div>
         <div id="page-rules" class="page">
             <div class="site-section">
@@ -87,7 +132,7 @@
                     Each member must read and follow these guild rules:
                     <ul>
                         <li>
-                            It is required to be active during guild wars. If there is a reason you will not be able to log in, let someone know BEFORE the war begins, and it will be excused. <i><u>Inactive members during the guild war will be kicked our at the end of the war.</u></i>
+                            It is required to be active during guild wars. If there is a reason you will not be able to log in, let someone know BEFORE the war begins, and it will be excused. <i><u>Inactive members during the guild war will be kicked out at the end of the war.</u></i>
                         </li>
                         <li>
                             We declare war on the hour the guild war starts, and then every 2 hours. <i><u>Declaring war randomly will get you kicked out at the end of the war.</u></i>
