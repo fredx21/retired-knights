@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/favico32x32.ico">
     <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+    <!-- http://chriszarate.github.io/sheetrock/ -->
+    <script type="text/javascript" src="js/jquery.sheetrock.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 </head>
 <body>
@@ -28,6 +30,7 @@
         }, 30000);
 
         selectPage('rules');
+        updateStats();
     };
 
     function selectPage(pageName)
@@ -49,6 +52,13 @@
         selectPage(selector.id.substr(14));
     }
 
+    function updateStats()
+    {
+        /*$('#results').sheetrock({
+            url: "https://docs.google.com/spreadsheet/ccc?key=0Ao7Q-nGhYrpddHdzeFpObmxUOFBhX2ZrOTBDRjJTc1E#gid=2"
+        });*/
+    }
+
 </script>
 <div class="background">
     <div class="background-image"></div>
@@ -58,7 +68,7 @@
     <div class="knd-banner"></div>
     <div class="site-content">
         <div class="site-section no-title">
-            <div class="site-section-content">Retired Knights is a friendly <a href="https://www.facebook.com/knightsanddragonsgame">Knights &amp; Dragons</a> guild on <a href="https://play.google.com/store/apps/details?id=com.iugome.lilknights">Android</a>. All our members play on a daily basis and try as hard as possible to be the best Android guild.
+            <div id="results" class="site-section-content">Retired Knights is a friendly <a href="https://www.facebook.com/knightsanddragonsgame">Knights &amp; Dragons</a> guild on <a href="https://play.google.com/store/apps/details?id=com.iugome.lilknights">Android</a>. All our members play on a daily basis and try as hard as possible to be the best Android guild.
             </div>
         </div>
         <div class="nav-bar">
