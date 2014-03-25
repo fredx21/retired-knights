@@ -54,7 +54,7 @@
         }
         if (g_curPageName != null) {
             $("#page-selector-" + g_curPageName).removeClass("selected");
-            $("#page-" + g_curPageName).fadeOut(300);
+            $("#page-" + g_curPageName).hide();
         }
         $("#page-selector-" + pageName).addClass("selected");
         $("#page-" + pageName).fadeIn(300);
