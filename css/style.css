@@ -1,3 +1,7 @@
+a {
+    color: white;
+}
+
 body {
     font-family:ProximaNova, sans-serif;
     font-size: 0;
@@ -16,8 +20,8 @@ body, div {
     border: 0;
 }
 
-a {
-    color: white;
+html {
+    overflow-y: scroll;
 }
 
 ul {
