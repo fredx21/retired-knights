@@ -51,7 +51,7 @@
         }
 
         var d = new Date(Date.parse(row.cells.Date));
-        var dateString = d.getUTCFullYear() +"/"+ (d.getUTCMonth()+1) +"/"+ d.getUTCDate();
+        var dateString = d.getUTCFullYear() +"/"+ ("0" + (d.getUTCMonth()+1)).slice(-2) +"/"+ ("0" + d.getUTCDate()).slice(-2);
 
         return "<tr><td>" + dateString + "</td><td>" + row.cells.Message + "</td></tr>";
     }
