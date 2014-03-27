@@ -46,7 +46,7 @@ td:last-of-type {
 }
 
 tr:last-of-type td {
-    padding: 0;
+    padding-bottom: 0;
 }
 
 th {
