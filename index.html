@@ -56,6 +56,34 @@
         return "<tr><td>" + dateString + "</td><td>" + row.cells.Message + "</td></tr>";
     }
 
+    function formatRanks(row)
+    {
+        var text;
+        var cellType;
+
+        if (row.num == 0) {
+            cellType = "th";
+        } else {
+            if (row.cells.Player == "") {
+                return null;
+            }
+            cellType = "td";
+        }
+
+        text = "<tr>";
+
+        for (var cell in row.cells) {
+            // use hasOwnProperty to filter out keys from the Object.prototype
+            if (row.cells.hasOwnProperty(cell)) {
+                text += "<" + cellType + ">" + row.cells[cell] + "</" + cellType + ">";
+            }
+        }
+
+        text += "</tr>";
+
+        return text;
+    }
+
     function selectPage(pageName)
     {
         if (pageName == g_curPageName) {
@@ -92,7 +120,8 @@
         $("#ranks").sheetrock({
             url: "https://docs.google.com/spreadsheet/ccc?key=0Ao7Q-nGhYrpddHQzQzlXWHdIc1hNR1VSRFdHS0M2Z2c#gid=1",
             sql: "select B,E,A",
-            headers: 1
+            headers: 1,
+            rowHandler: formatRanks
         });
     }
 </script>
